@@ -1,5 +1,6 @@
-import { Image, Text, View, StyleSheet } from "react-native";
+import { Image, Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import PostItImage from "@/assets/images/images/post-it.png";
+import { router, useRouter } from "expo-router";
 
 export default function HomeScreen() {
   return (
@@ -12,7 +13,13 @@ export default function HomeScreen() {
     >
       <Image source={PostItImage} style={styles.image} />
       <Text style={styles.title}>Welcome To Notes App</Text>
-      <Text style={styles.subtitle}>Welcome To Notes App</Text>
+      <Text style={styles.subtitle}>Capture your thoughts anytime, anywhere</Text>
+      <TouchableOpacity
+        style ={styles.button}
+        onPress={() => router.push('/notes')}
+      >
+        <Text style={styles.buttonText}>Get Started</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -42,6 +49,18 @@ const styles = StyleSheet.create({
     color: "#666",
     textAlign: "center",
     marginBottom: 20,
+  },
+  button: {
+    backgroundColor: "#007bff",
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
   }
 });
 // This is the main entry point for the app. It imports the necessary modules and defines a functional component that renders a view with a text message. The styles are defined using StyleSheet.create for better performance and organization.
